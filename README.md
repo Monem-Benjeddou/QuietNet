@@ -7,7 +7,7 @@ Block ads and trackers in every app on your Android phone. Tap one button and it
 QuietNet starts a local VPN that only carries DNS lookups, the step where an app asks "where is ads.example.com?". If the name is on a blocklist, QuietNet answers right away that it doesn't exist, so the ad never loads. All other lookups go to your normal DNS server, and all other traffic goes straight to the internet. Nothing passes through a remote server, so browsing speed and battery life stay the same.
 
 - **One switch.** Use the big shield in the app, or the **Block ads** tile in Quick Settings.
-- **About a million ad, tracker and malware domains** from well-known community blocklists: HaGeZi, OISD, AdGuard DNS filter, StevenBlack, Peter Lowe, EasyList and EasyPrivacy. More lists are available as options: HaGeZi Ultimate, Threat protection and Samsung tracking.
+- **Over half a million ad, tracker and malware domains** from well-known community blocklists: HaGeZi, OISD, AdGuard DNS filter, StevenBlack, Peter Lowe, EasyList and EasyPrivacy. More lists are available as options: HaGeZi Ultimate, Threat protection and Samsung tracking.
 - **Activity view** of what was blocked. Allow a domain that broke something with one tap, or block one that got through.
 - **Per-app switch** to skip apps that don't like it, such as some banking apps.
 - **Choice of DNS server**: your network's own server, AdGuard DNS (blocks even more), Cloudflare, Quad9 or Google.
