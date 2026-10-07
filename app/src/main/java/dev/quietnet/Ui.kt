@@ -40,6 +40,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.Block
 import androidx.compose.material.icons.rounded.CheckCircle
+import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.FilterList
 import androidx.compose.material.icons.rounded.History
@@ -226,6 +227,8 @@ private fun HomeScreen(notice: StateFlow<String?>, onToggle: () -> Unit) {
             Stat("Checked", number(checked), Modifier.weight(1f))
             Stat("Blocklist", if (rules == 0) "–" else compact(rules), Modifier.weight(1f))
         }
+        Spacer(Modifier.height(12.dp))
+        YouTubeCard { context.startActivity(Intent(context, YouTubeActivity::class.java)) }
         message?.let { Notice(Icons.Rounded.Warning, it) }
         if (on && strictDns != null) {
             Notice(
@@ -239,8 +242,8 @@ private fun HomeScreen(notice: StateFlow<String?>, onToggle: () -> Unit) {
         error?.let { Notice(Icons.Rounded.Warning, it) }
         Notice(
             Icons.Rounded.Info,
-            "Some ads can't be blocked by any app without root, such as YouTube, Instagram and " +
-                "Facebook ads, because they come from the same servers as the videos and posts.",
+            "Ads inside the YouTube, Instagram and Facebook apps come from the same servers as the videos " +
+                "and posts, so no app can block them there without root. Watch YouTube here instead.",
         )
         Spacer(Modifier.height(20.dp))
     }
@@ -277,6 +280,34 @@ private fun PowerButton(on: Boolean, busy: Boolean, onClick: () -> Unit) {
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun YouTubeCard(onClick: () -> Unit) {
+    Card(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
+    ) {
+        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+            Icon(
+                painterResource(R.drawable.ic_play),
+                contentDescription = null,
+                tint = Color.Unspecified,
+                modifier = Modifier.size(40.dp),
+            )
+            Spacer(Modifier.width(14.dp))
+            Column(Modifier.weight(1f)) {
+                Text("YouTube without ads", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                Text(
+                    "Keeps playing with the screen off",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Icon(Icons.Rounded.ChevronRight, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }
 }

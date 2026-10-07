@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">QuietNet</string>
     <string name="tile_label">Block ads</string>
+    <string name="youtube_label">YouTube</string>
+    <string name="youtube_task">YouTube · no ads</string>
+    <string name="share_label">Watch without ads</string>
 </resources>

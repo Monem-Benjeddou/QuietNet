@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="youtube"
+        android:enabled="true"
+        android:icon="@drawable/ic_play"
+        android:shortcutShortLabel="@string/youtube_label">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="dev.quietnet"
+            android:targetClass="dev.quietnet.YouTubeActivity" />
+    </shortcut>
+</shortcuts>

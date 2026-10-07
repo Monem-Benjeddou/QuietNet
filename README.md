@@ -13,10 +13,15 @@ QuietNet starts a local VPN that only carries DNS lookups, the step where an app
 - **Choice of DNS server**: your network's own server, AdGuard DNS (blocks even more), Cloudflare, Quad9 or Google.
 - **Turns itself back on** after a reboot or an update. It also works with Android's Always-on VPN setting.
 - **Updates the lists** every few days.
+- **YouTube without ads.** Tap the YouTube card on the Home screen, long-press the QuietNet icon, or share a video from the YouTube app to **Watch without ads**:
+  - YouTube's mobile site opens inside QuietNet, and our own script removes the ad data from YouTube's responses before the player reads it. Videos start straight away.
+  - Playback continues with the screen off or the app in the background.
+  - Controls appear on the lock screen and in the notification, and headset buttons work.
 
 ## Limits
 
-- **YouTube, Instagram and Facebook:** their ads come from the same servers as the videos and posts, so no DNS blocker can remove them. That includes every non-root app.
+- **YouTube, Instagram and Facebook apps:** their ads come from the same servers as the videos and posts, so no DNS blocker can remove them. That includes every non-root app. For YouTube, use QuietNet's YouTube screen instead.
+- **YouTube changes its site from time to time.** If an ad gets through after a change, the script needs an update.
 - **Strict Private DNS:** with Settings → Private DNS set to a specific provider, Android skips QuietNet. Set it to **Off** or **Automatic**. The app warns you when this happens.
 - **One VPN at a time:** Android allows only one VPN, so QuietNet can't run next to another VPN app.
 
@@ -44,6 +49,8 @@ Release signing reads `~/.android-signing/quietnet.properties` (`storeFile`, `st
 | `Filters.kt` | The list catalog, downloads, and a parser for hosts, domain and adblock-style lists |
 | `Ui.kt`, `MainActivity.kt` | The screens (Jetpack Compose) |
 | `ToggleTile.kt`, `BootReceiver.kt` | The Quick Settings tile and restart after a reboot |
+| `YouTubeActivity.kt`, `assets/youtube.js` | YouTube screen: removes ads from YouTube's data, blocks ad requests, keeps playback going in the background |
+| `PlaybackService.kt`, `Player.kt` | Background playback, the media notification and lock-screen controls |
 
 ## License
 
